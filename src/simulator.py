@@ -1,4 +1,4 @@
-from kubernetes import client, config
+from kubernetes import client, config, watch
 import time
 
 def list_pods(namespace='default'):
