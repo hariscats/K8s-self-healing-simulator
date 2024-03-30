@@ -1,4 +1,5 @@
-from kubernetes import client, config, watch
+from kubernetes import client, config
+from kubernetes import watch
 import time
 
 def list_pods(namespace='default'):
@@ -25,7 +26,7 @@ def delete_pod(pods, index, namespace='default'):
 def watch_pod_events(pod_name, namespace='default'):
     config.load_kube_config()
     v1 = client.CoreV1Api()
-    w = client.watch.Watch()
+    w = watch.Watch()
     print(f"Watching events for new pod creation...")
     for event in w.stream(v1.list_namespaced_event, namespace=namespace, timeout_seconds=60):
         if event['object'].involved_object.name == pod_name and event['object'].reason in ['Scheduled', 'Created', 'Started']:
