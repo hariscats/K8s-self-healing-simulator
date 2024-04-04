@@ -43,8 +43,3 @@ The Kubernetes Self-Healing Simulator is a Python CLI tool designed to demonstra
    python src/simulator.py
    ```
 3. Follow the on-screen prompts to select and delete a pod. Observe the self-healing process through event logs.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
